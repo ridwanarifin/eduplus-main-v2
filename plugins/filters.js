@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import _ from '~/static/vendor/lodash'
+import _ from 'lodash'
 
 Vue.filter('truncate', (text, length, clamp) => {
   clamp = clamp || '...'

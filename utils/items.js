@@ -1,4 +1,3 @@
-import * as _ from '~/static/vendor/lodash'
 export const stageItems = [{
   text: 'SD & MI',
   value: 'sd'

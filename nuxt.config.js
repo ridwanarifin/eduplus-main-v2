@@ -94,7 +94,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [
-      './static/vendor/vee-validate/dist/rules'
+      'vee-validate/dist/rules'
     ]
   },
 

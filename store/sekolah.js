@@ -1,4 +1,4 @@
-import _ from '~/static/vendor/lodash'
+import _ from 'lodash'
 
 export const state = () => ({
   untouched: true,

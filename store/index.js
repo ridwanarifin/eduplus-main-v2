@@ -1,6 +1,6 @@
-import * as _ from '~/static/vendor/lodash'
-import SecureLS from '~/static/vendor/secure-ls'
-import createPersistedState from '~/static/vendor/vuex-persistedstate'
+import * as _ from 'lodash'
+import SecureLS from 'secure-ls'
+import createPersistedState from 'vuex-persistedstate'
 const ls = new SecureLS({ isCompression: false })
 
 // export const strict = false

@@ -1,18 +1,18 @@
 import Vue from 'vue'
-import _ from '~/static/vendor/lodash'
+import _ from 'lodash'
 import {
   extend,
   setInteractionMode,
   ValidationObserver,
   ValidationProvider
-} from '~/static/vendor/vee-validate'
+} from 'vee-validate'
 import {
   confirmed,
   required,
   email,
   double,
   numeric
-} from '~/static/vendor/vee-validate/dist/rules'
+} from 'vee-validate/dist/rules'
 
 setInteractionMode('eager')
 
