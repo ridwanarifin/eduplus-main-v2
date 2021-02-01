@@ -35,7 +35,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import OrderingFilterSekolah from '~/../vue-edu-plus-v2/components/OrderingFilterSekolah.vue'
+import OrderingFilterSekolah from '~/components/OrderingFilterSekolah.vue'
 
 export default {
   components: { OrderingFilterSekolah },
