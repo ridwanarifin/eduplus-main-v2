@@ -1,6 +1,7 @@
 import * as _ from 'lodash'
 import SecureLS from 'secure-ls'
 import createPersistedState from 'vuex-persistedstate'
+import { window } from '~/static/vendor/lodash/_freeGlobal'
 const ls = new SecureLS({ isCompression: false })
 
 // export const strict = false
@@ -152,6 +153,8 @@ export const actions = {
   async nuxtClientInit ({ commit, dispatch, rootState }) {
     // code
     commit('SET_PENDING', true)
+
+    window.localStorage.clear()
 
     await Promise.all([
       dispatch('getSearchInit'),
