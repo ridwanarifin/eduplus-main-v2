@@ -1,0 +1,140 @@
+@import "fonts.scss";
+@import "fonts.scss";
+@import "variables";
+@import "poly-fluid-sizing";
+
+$darkBlue: #1A6EB2;
+$grenn: #00D1B2;
+$greenTosa: #17DABD;
+
+a {
+  text-decoration: none !important;
+  border: 0 !important;
+  outline:none !important;
+}
+
+
+.text--headline {
+  color: $darkBlue !important;
+}
+
+
+.btn-primary-registration {
+  .v-btn__content {
+    color: $darkBlue !important;
+  }
+  &.v-btn--is-elevated {
+    box-shadow: 0px 4px 8px rgba(50, 115, 220, 0.25);
+  }
+}
+
+.btn-secondary {
+  box-shadow: 0px 4px 8px rgba(150, 200, 235, 0.25);
+}
+
+
+.shadow-primary {
+  box-shadow: 0px 4px 8px rgba(50, 115, 220, 0.25) !important;
+}
+
+
+.input-shadow-primary {
+  .v-input__control {
+    .v-input__slot {
+      box-shadow: 0px 4px 8px rgba(50, 115, 220, 0.25) !important;
+    }
+  }
+}
+
+
+.input-filled-shadow-primary {
+  &.v-text-field--filled {
+    .v-input__control {
+      .v-input__slot {
+        background: white !important;
+        box-shadow: 0px 4px 8px rgba(50, 115, 220, 0.25) !important;
+      }
+    }
+  }
+}
+
+.input-radio-primary {
+  background: #FFFFFF !important;
+  border: 0.4px solid #9B9B9B !important;
+  .v-label {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+  }
+
+  &.v-item--active {
+    background: #1976d2 !important;
+    border: 0.4px solid #1976d2 !important;
+    .v-label {
+      color: white !important;
+    }
+  }
+}
+
+
+.edu-jumbotron {
+  @include poly-fluid-sizing('padding-top', (375px:69px, 1440px:71px));
+  @include poly-fluid-sizing('padding-bottom', (375px:64px, 1440px:104px));
+
+  &-logo {
+    @include poly-fluid-sizing('width', (375px:138px, 1440px:271px));
+    height: auto;
+    @media #{map-get($display-breakpoints, 'xs-only')} {
+      margin: 0 auto 15px auto !important;
+    }
+  }
+
+  &-wisuda {
+    @media #{map-get($display-breakpoints, 'sm-and-up')} {
+      width: 372px !important;
+    }
+  }
+
+  &-action-cari {
+    @include poly-fluid-sizing('margin-top', (375px:30px, 1440px:40px));
+    width: 227px !important;
+    height: 48px !important;
+    .v-btn__content {
+      color: $darkBlue !important;
+    };
+  }
+}
+
+
+.headline-ss {
+  @media #{map-get($display-breakpoints, 'xs-only')} {
+    background: url('~assets/img/bg-green-eduplus-mobile.svg'), linear-gradient(90deg, #00D1B2 -0.03%, #50F0D8 99.97%), #FAFAFA;;
+    padding: 40px 15px 61px !important;
+  }
+
+  @media #{map-get($display-breakpoints, 'sm-and-up')} {
+    background: url('~assets/img/bg-green-eduplus.svg'), linear-gradient(90deg, #00D1B2 -0.03%, #50F0D8 99.97%), #FAFAFA;;
+    padding-top: 50px !important;
+    padding-bottom: 30px !important;
+  }
+
+  &-action-search {
+    height: 48px !important;
+    .v-btn__content {
+      color: $greenTosa !important;
+    };
+
+    @media #{map-get($display-breakpoints, 'xs-only')} {
+      width: 227px !important;
+      margin: 55px 0 !important;
+    }
+
+    @media #{map-get($display-breakpoints, 'sm-and-up')} {
+      width: 343px !important;
+      margin: 45px 0 24px !important;
+    }
+  }
+
+  &-content {
+    width: 284px !important;
+  }
+}
