@@ -60,7 +60,7 @@
     </template>
 
     <template v-if="$_.size(dataSource.data)" #footer>
-      <v-row class="mt-10" align-sm="center" justify-sm="end">
+      <v-row class="mt-16" align-sm="center" justify-sm="center">
         <v-col
           cols="12"
           sm="auto"

@@ -25,6 +25,7 @@
         show-arrows
         :prev-icon="$icon.mdiChevronLeft"
         :next-icon="$icon.mdiChevronRight"
+        background-color="transparent"
       >
         <v-tab
           v-for="(item, idx) in headers"

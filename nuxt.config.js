@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -54,6 +56,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
     '@nuxtjs/moment',
     '@nuxtjs/toast',
     '@nuxtjs/style-resources',
@@ -73,7 +76,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://backend.edukasiplus.com'
+    baseURL: process.env.APP_URL
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

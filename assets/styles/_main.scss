@@ -105,6 +105,16 @@ a {
 }
 
 
+.edu-logo {
+  @media #{map-get($display-breakpoints, 'xs-only')} {
+    max-width: 64px !important;
+  }
+  @media #{map-get($display-breakpoints, 'sm-and-up')} {
+    max-width: 100px !important;
+  }
+}
+
+
 .headline-ss {
   @media #{map-get($display-breakpoints, 'xs-only')} {
     background: url('~assets/img/bg-green-eduplus-mobile.svg'), linear-gradient(90deg, #00D1B2 -0.03%, #50F0D8 99.97%), #FAFAFA;;

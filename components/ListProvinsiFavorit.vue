@@ -3,9 +3,10 @@
     <template #default="props">
       <v-data-iterator
         :items="init"
-        :items-per-page="4"
+        :items-per-page="perPage"
         :search="props.search"
         class="text-center"
+        hide-default-footer
       >
         <template #default="{ items }">
           <v-row align-sm="center">
@@ -50,6 +51,37 @@
             </template>
           </v-row>
         </template>
+
+        <template #footer>
+          <div
+            v-show="$_.size(init) >= 8"
+            class="text-center mt-16"
+          >
+            <v-btn
+              v-if="perPage !== -1"
+              text
+              large
+              rounded
+              color="primary"
+              class="btn-secondary px-sm-10"
+              @click.stop="perPage = -1"
+            >
+              Muat lebih banyak
+            </v-btn>
+
+            <v-btn
+              v-else
+              text
+              large
+              rounded
+              color="primary"
+              class="btn-secondary px-sm-10"
+              @click.stop="perPage = 8"
+            >
+              Muat lebih sedikit
+            </v-btn>
+          </div>
+        </template>
       </v-data-iterator>
     </template>
   </lazy-base-tab-list-favorit>
@@ -60,6 +92,9 @@ import { mapGetters, mapActions } from 'vuex'
 import { mapFields } from 'vuex-map-fields'
 
 export default {
+  data: () => ({
+    perPage: 8
+  }),
   computed: {
     ...mapFields('form', [
       'search_favorite_school',

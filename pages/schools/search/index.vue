@@ -8,7 +8,7 @@
         Cari nama sekolah
       </div>
 
-      <lazy-form-search-name>
+      <form-search-name @finally-submit="submitSearchName">
         <div class="text-center">
           <v-btn
             rounded
@@ -19,7 +19,7 @@
             cari sekarang
           </v-btn>
         </div>
-      </lazy-form-search-name>
+      </form-search-name>
     </div>
 
     <div
@@ -29,13 +29,19 @@
       <div class="text--headline text-center text-h5 text-sm-h4 mb-10">
         Atau cari sesuai alamat
       </div>
-      <lazy-form-search-address />
+      <form-search-address />
     </div>
   </div>
 </template>
 
 <script>
+import FormSearchName from '~/components/form/FormSearchName.vue'
+import FormSearchAddress from '~/components/form/FormSearchAddress.vue'
 export default {
+  components: {
+    FormSearchName,
+    FormSearchAddress
+  },
   meta: {
     crumbs: [{
       name: 'Home',
@@ -46,6 +52,11 @@ export default {
       to: '/schools/search',
       exact: true
     }]
+  },
+  methods: {
+    submitSearchName () {
+      this.$router.push('/schools/search/results')
+    }
   }
 }
 </script>

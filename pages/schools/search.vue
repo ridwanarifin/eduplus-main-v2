@@ -6,8 +6,18 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import Breadcrumbs from '~/components/Breadcrumbs.vue'
+
 export default {
-  components: { Breadcrumbs }
+  components: { Breadcrumbs },
+  destroyed () {
+    this.reset()
+  },
+  methods: {
+    ...mapMutations('sekolah', {
+      reset: 'RESET_DATA'
+    })
+  }
 }
 </script>

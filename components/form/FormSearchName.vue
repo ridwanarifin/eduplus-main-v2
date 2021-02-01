@@ -15,8 +15,8 @@
         <v-text-field
           ref="search_school"
           v-model.lazy="search_school"
-          :loading="loading"
-          :disabled="loading"
+          :loading="sekolah.pending"
+          :disabled="sekolah.pending"
           :clear-icon="$icon.mdiClose"
           :append-icon="$icon.mdiMagnify"
           solo
@@ -35,20 +35,15 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { mapFields } from 'vuex-map-fields'
 export default {
-  props: {
-    loading: {
-      type: Boolean,
-      default: false
-    }
-  },
   data: () => ({
     subtitle: 'Cari sekolah / Tempat Kursus disini'
   }),
   computed: {
     ...mapFields('form', ['search_school']),
+    ...mapGetters('sekolah', ['sekolah']),
     observer () { return this.$refs.observer },
     fieldSearch () { return this.$refs.search_school }
   },
@@ -59,6 +54,7 @@ export default {
         .finally(() => {
           this.fieldSearch.blur()
           this.observer.reset()
+          this.$emit('finally-submit')
         })
     }
   }

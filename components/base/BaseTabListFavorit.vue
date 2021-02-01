@@ -83,9 +83,8 @@
                 md="3"
               >
                 <v-card class="shadow-primary">
-                  <v-img
-                    :src="getImage(d.name, 'green')"
-                    :lazy-src="getImage(d.name, 'green')"
+                  <lazy-image
+                    :source="getImage(d.name, 'green')"
                   />
                   <v-card-title v-text="d.name" />
                   <v-card-subtitle v-text="`${d.count} ${item.title}`" />

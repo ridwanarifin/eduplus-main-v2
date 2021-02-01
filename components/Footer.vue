@@ -1,7 +1,7 @@
 <template>
   <v-footer
     :color="colors.blueEduplus"
-    class="py-5 px-3 px-sm-10"
+    class="py-sm-5 pt-10 pb-5 px-3 px-sm-10"
     dark
   >
     <v-row
@@ -15,8 +15,8 @@
         sm="auto"
       >
         <v-img
-          :src="require('~/static/icon.png?webp')"
-          :lazy-src="require('~/static/icon.png?webp')"
+          :src="require('~/static/logo.png?webp')"
+          :lazy-src="require('~/static/logo.png?webp')"
           max-width="138"
           max-height="52"
         >
@@ -48,16 +48,13 @@
         md
       >
         <v-btn
-          v-for="(item, i) in data"
+          v-for="(item, i) in items"
           :key="i"
-          :to="item.path"
-          :link="!item.path"
-          :nuxt="item.path && true"
-          exact
-          text
           :small="$vuetify.breakpoint.mobile"
+          v-bind="item"
+          text
         >
-          {{ item.name }}
+          {{ item.title }}
         </v-btn>
       </v-col>
 
@@ -70,8 +67,17 @@
         />
 
         <div class="mt-4 d-flex align-center justify-center">
-          {{ $moment().year() }} <v-icon class="mx-1" size="15" v-text="$icon.mdiCopyright" />
-          Edu<v-icon size="15" v-text="$icon.mdiPlus" />. All rights reserved.
+          {{ $moment().year() }}
+          <v-icon
+            class="mx-1"
+            size="15"
+            v-text="$icon.mdiCopyright"
+          />
+          Edu
+          <v-icon
+            size="15"
+            v-text="$icon.mdiPlus"
+          />. All rights reserved.
         </div>
       </v-col>
     </v-row>
@@ -80,22 +86,12 @@
 
 <script>
 import * as Colors from '~/utils/colors'
+import { footerItems } from '~/utils/items.js'
+
 export default {
   data: () => ({
     colors: Colors,
-    data: [{
-      name: 'Home',
-      path: '/'
-    }, {
-      name: 'Hubungin Kami',
-      path: '/contact-us'
-    }, {
-      name: 'Login',
-      path: ''
-    }, {
-      name: 'Daftarkan Sekolah Anda',
-      path: '/school-registration'
-    }]
+    items: footerItems
   })
 }
 </script>

@@ -10,15 +10,16 @@
     app
   >
     <v-list>
-      <v-list-item>
+      <v-list-item class="mb-8">
         <v-list-item-content>
           <v-img
-            :src="require('~/static/icon.png?webp')"
-            :lazy-src="require('~/static/icon.png?webp')"
+            :src="require('~/static/logo.png?webp')"
+            :lazy-src="require('~/static/logo.png?webp')"
             min-width="auto"
-            max-width="100px"
+            class="edu-logo"
           />
         </v-list-item-content>
+
         <v-list-item-icon>
           <v-icon
             @click.stop="$emit('on-close-drawer', false)"
@@ -42,28 +43,39 @@
         </v-list-item-content>
       </v-list-item>
 
+      <v-list-item
+        link
+        href="https://operator.edukasiplus.com"
+        target="_blank"
+      >
+        <v-list-item-action>
+          <v-icon v-text="$icon.mdiLogin" />
+        </v-list-item-action>
+        <v-list-item-title v-text="'Login'" />
+      </v-list-item>
+
       <v-divider
         inset
-        class="mx-auto my-5"
+        class="mx-auto mt-5 mb-10"
         :style="{
           borderWidth: '1px'
         }"
       />
 
-      <v-list-item-action>
+      <v-list-item class="text-center">
         <v-btn
+          nuxt
           dark
           large
-          rounded
-          nuxt
           exact
+          rounded
           color="white"
-          class="py-4 btn-primary-registration"
+          class="mx-auto py-4 px-sm-10 btn-primary-registration"
           to="/schools/registration"
         >
           Daftarkan Sekolah Anda
         </v-btn>
-      </v-list-item-action>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>

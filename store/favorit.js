@@ -39,7 +39,6 @@ export const actions = {
    * { stage: 'sd', id_province: 31 }
    */
   async getFavoritByContext ({ commit }, context) {
-    console.log('from getFavoritByContext')
     const { stage, id_province } = context
     commit('SET_PENDING', true)
     if (!id_province) {

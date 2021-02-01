@@ -15,7 +15,7 @@
         rounded
         color="white"
         class="headline-ss-action-search font-weight-bold"
-        to="/search"
+        to="/schools/search"
       >
         Cari sekarang
       </v-btn>
@@ -26,7 +26,7 @@
           nuxt
           text
           to="/schools/registration"
-          class="text-lowercase text-sm-h6"
+          class="text-lowercase text-sm-h6 pa-0"
         >
           disini
         </v-btn>

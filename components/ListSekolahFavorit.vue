@@ -35,7 +35,7 @@
                 <v-card
                   nuxt
                   exact
-                  :to="'/schools/details/' + item.uuid"
+                  :to="`/schools/detail/${item.uuid}`"
                   class="shadow-primary text-left"
                 >
                   <v-img
@@ -43,10 +43,10 @@
                     :lazy-src="getImage(item.name, 'blue')"
                   />
                   <v-card-title>
-                    {{ item.name | truncate(18) }}
+                    {{ item.name | truncate(sizeName) }}
                   </v-card-title>
                   <v-card-subtitle>
-                    {{ item.address | truncate(32) }}
+                    {{ item.address | truncate(sizeAddress) }}
                   </v-card-subtitle>
                 </v-card>
               </v-col>
@@ -62,7 +62,23 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters('favorit', ['pending', 'provinsi_init'])
+    ...mapGetters('favorit', ['pending', 'provinsi_init']),
+    sizeName () {
+      if (this.$vuetify.breakpoint.xs) {
+        return 27
+      } else if (this.$vuetify.breakpoint.sm) {
+        return 13
+      }
+      return 15
+    },
+    sizeAddress () {
+      if (this.$vuetify.breakpoint.xs) {
+        return 35
+      } else if (this.$vuetify.breakpoint.sm) {
+        return 23
+      }
+      return 30
+    }
   }
 }
 </script>

@@ -3,7 +3,7 @@
     <v-row class="container mx-auto" justify="center" align="center">
       <v-col cols="12" sm="6" md="4" class="text-center text-sm-left">
         <lazy-image
-          :source="require('@/static/icon.png?webp')"
+          :source="require('~/static/logo.png?webp')"
           class="edu-jumbotron-logo"
           max-width="271"
           max-height="102"
@@ -14,7 +14,7 @@
         </div>
 
         <v-btn
-          to="/search"
+          to="/schools/search"
           nuxt
           class="edu-jumbotron-action-cari btn-primary-registration font-weight-bold"
           color="white"
@@ -28,7 +28,7 @@
 
       <v-col cols="12" sm="6" class="hidden-xs-only">
         <lazy-image
-          :source="require('@/assets/img/edu-wisuda.png?webp')"
+          :source="require('~/assets/img/edu-wisuda.png?webp')"
           class="edu-jumbotron-wisuda ml-auto"
           max-width="372"
           max-height="365"

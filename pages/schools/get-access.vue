@@ -1,13 +1,15 @@
 <template>
   <div class="mt-10">
     <lazy-breadcrumbs />
-    <lazy-form-get-access />
+    <form-get-access />
   </div>
 </template>
 
 <script>
 import { mapMutations, mapActions } from 'vuex'
+import FormGetAccess from '~/components/form/FormGetAccess.vue'
 export default {
+  components: { FormGetAccess },
   meta: {
     crumbs: [{
       name: 'Pencarian Sekolah',

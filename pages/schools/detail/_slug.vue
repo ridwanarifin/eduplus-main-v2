@@ -8,13 +8,13 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-  middleware (ctx) {
-    ctx.store.commit('SET_CRUMBS', [{
+  middleware ({ route, store }) {
+    store.commit('SET_CRUMBS', [{
       to: '/',
       exact: true,
       name: 'Daftar Sekolah'
     }, {
-      to: ctx.route.path,
+      to: route.fullPath,
       exact: true,
       name: 'Detail Sekolah'
     }])

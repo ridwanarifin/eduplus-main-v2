@@ -8,10 +8,7 @@
         Daftarkan Sekolah / Tempat Kursus
       </div>
 
-      <form-search-name
-        :loading="sekolah.pending"
-        @search-input="typing = true"
-      />
+      <form-search-name @search-input="typing = true" />
     </div>
 
     <nuxt-child v-if="!typing" />
@@ -42,7 +39,7 @@
 
 <script>
 import _ from 'lodash'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 import { mapFields } from 'vuex-map-fields'
 import FormSearchName from '~/components/form/FormSearchName.vue'
 
@@ -55,7 +52,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('sekolah', ['sekolah']),
     ...mapFields('form', ['search_school'])
   },
   watch: {

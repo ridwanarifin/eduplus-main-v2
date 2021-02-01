@@ -113,7 +113,11 @@
     </template>
 
     <template #footer>
-      <v-row class="mt-10" align-sm="center">
+      <v-row
+        v-show="$_.size(sekolah.data)"
+        class="mt-10"
+        align-sm="center"
+      >
         <v-col>
           <v-pagination
             v-model="page"

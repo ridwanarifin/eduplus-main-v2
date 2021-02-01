@@ -1,7 +1,6 @@
 import * as _ from 'lodash'
 import SecureLS from 'secure-ls'
 import createPersistedState from 'vuex-persistedstate'
-import { window } from '~/static/vendor/lodash/_freeGlobal'
 const ls = new SecureLS({ isCompression: false })
 
 // export const strict = false
@@ -158,6 +157,7 @@ export const actions = {
 
     await Promise.all([
       dispatch('getSearchInit'),
+      dispatch('promo/getPromo'),
       dispatch('favorit/getFavoritByContext', { stage: rootState.form.tabActive })
     ])
       .finally(() => {

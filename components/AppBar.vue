@@ -11,27 +11,35 @@
   >
     <nuxt-link exact replace to="/">
       <v-img
-        :src="require('~/static/icon.png?webp')"
-        :lazy-src="require('~/static/icon.png?webp')"
+        :src="require('~/static/logo.png?webp')"
+        :lazy-src="require('~/static/logo.png?webp')"
         min-width="auto"
-        max-width="100px"
+        class="edu-logo"
       />
     </nuxt-link>
     <v-spacer />
 
     <v-sheet color="transparent" class="hidden-sm-and-down">
       <v-btn
-        v-for="(item, i) in data"
-        :key="i"
+        v-for="(item, index) in data"
+        :key="index"
         :to="item.path"
-        :link="!item.path ? true : false"
-        :nuxt="item.path ? true : false"
-        :href="!item.path ? 'https://operator.edukasiplus.com/' : ''"
+        nuxt
         exact
         text
         tile
       >
         {{ item.name }}
+      </v-btn>
+
+      <v-btn
+        text
+        tile
+        link
+        href="https://operator.edukasiplus.com"
+        target="_blank"
+      >
+        Login
       </v-btn>
 
       <v-btn
@@ -51,14 +59,6 @@
       class="hidden-md-and-up"
       color="transparent"
     >
-      <v-btn
-        icon
-        @click.stop="on_click_mini_variant"
-      >
-        <v-icon>
-          {{ miniVariant ? $icon.mdiChevronRight : $icon.mdiChevronLeft }}
-        </v-icon>
-      </v-btn>
       <v-app-bar-nav-icon
         @click.prevent="$emit('on-click-drawer')"
       />
@@ -79,10 +79,6 @@ export default {
       type: Boolean,
       required: true
     },
-    miniVariant: {
-      type: Boolean,
-      default: false
-    },
     data: {
       type: Array,
       required: true
@@ -97,15 +93,7 @@ export default {
   },
   watch: {
     drawer (args) {
-      this.drawerModel = this.drawerModel !== args && this.args
-    },
-    miniVariant (args) {
-      this.variant = args
-    }
-  },
-  methods: {
-    on_click_mini_variant () {
-      this.$emit('on-click-mini-variant')
+      this.drawerModel = args
     }
   }
 }
