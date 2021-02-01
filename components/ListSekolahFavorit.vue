@@ -3,9 +3,10 @@
     <template #default="props">
       <v-data-iterator
         :items="provinsi_init"
-        :items-per-page="4"
+        :items-per-page="perPage"
         :search="props.search"
         class="text-center"
+        hide-default-footer
       >
         <template #default="{ items }">
           <v-row align-sm="center">
@@ -53,6 +54,37 @@
             </template>
           </v-row>
         </template>
+
+        <template #footer>
+          <div
+            v-show="$_.size(provinsi_init) > 8"
+            class="text-center mt-16"
+          >
+            <v-btn
+              v-if="perPage < $_.size(provinsi_init)"
+              text
+              large
+              rounded
+              color="primary"
+              class="btn-secondary px-sm-10"
+              @click.stop="perPage += 4"
+            >
+              Muat lebih banyak
+            </v-btn>
+
+            <v-btn
+              v-else
+              text
+              large
+              rounded
+              color="primary"
+              class="btn-secondary px-sm-10"
+              @click.stop="perPage = 8"
+            >
+              Muat lebih sedikit
+            </v-btn>
+          </div>
+        </template>
       </v-data-iterator>
     </template>
   </lazy-base-tab-list-favorit>
@@ -61,6 +93,9 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  data: () => ({
+    perPage: 8
+  }),
   computed: {
     ...mapGetters('favorit', ['pending', 'provinsi_init']),
     sizeName () {

@@ -10,7 +10,6 @@
           nuxt
           ripple
           v-bind="item"
-          class="text-capitalize"
         >
           {{ item.name | capitalize }}
         </v-breadcrumbs-item>

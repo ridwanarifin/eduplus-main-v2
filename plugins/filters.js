@@ -10,7 +10,9 @@ Vue.filter('truncate', (text, length, clamp) => {
 
 Vue.filter('capitalize', (text) => {
   if (!text) { return '' }
-  return _.capitalize(text)
+  const a = _.split(text, ' ')
+  const b = _.map(a, o => _.size(o) > 3 ? _.capitalize(o) : o)
+  return _.join(b, ' ')
 })
 
 Vue.filter('upper', (text) => {

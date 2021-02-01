@@ -14,7 +14,8 @@ export const state = () => ({
   ordering_school: 'asc',
   getaccess: initFormGetaccess,
   search_school_address: initFormSearchSchoolAddress,
-  contact: initFormContact
+  contact: initFormContact,
+  dialog_promo: false
 })
 
 export const getters = {

@@ -1,8 +1,7 @@
 <template>
   <div>
-    <lazy-jumbotron />
-    <lazy-headline-cari-sekolah />
-    <lazy-breadcrumbs />
+    <lazy-jumbotron class="mb-6" />
+    <lazy-list-promo class="mb-16" />
     <lazy-list-provinsi-favorit />
   </div>
 </template>

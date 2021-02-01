@@ -54,7 +54,7 @@
 
         <template #footer>
           <div
-            v-show="$_.size(init) >= 8"
+            v-show="$_.size(init) > 8"
             class="text-center mt-16"
           >
             <v-btn

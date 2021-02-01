@@ -31,6 +31,12 @@ export const initFormContact = {
   message: null
 }
 
+export const initPromoActive = {
+  name: null,
+  description: null,
+  image: null
+}
+
 export const initPromo = {
   pending: false,
   current_page: null,
@@ -40,5 +46,6 @@ export const initPromo = {
   next_page_url: null,
   prev_page_url: null,
   per_page: 6,
-  total: 0
+  total: 0,
+  promoActive: initPromoActive
 }
