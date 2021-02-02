@@ -12,7 +12,7 @@
           class="text-h4 mx-auto"
           :style="{color: colors.primary}"
         >
-          Hubungin Kami
+          Hubungi Kami
         </div>
       </v-col>
 
