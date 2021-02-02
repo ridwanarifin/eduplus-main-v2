@@ -14,7 +14,7 @@ import { mapMutations, mapActions } from 'vuex'
 export default {
   middleware ({ route, store }) {
     store.commit('SET_CRUMBS', [{
-      to: '/',
+      to: '/schools/search/results',
       exact: true,
       name: 'Daftar Sekolah'
     }, {
