@@ -19,10 +19,10 @@ Vue.filter('upper', (text) => {
   return _.upperCase(text)
 })
 
-Vue.filter('statusSekolah', (number) => {
-  switch (number) {
-    case 0: return 'Swasta'
-    case 1: return 'Negeri'
+Vue.filter('statusSekolah', (text) => {
+  switch (text) {
+    case '0': return 'Swasta'
+    case '1': return 'Negeri'
     default: return null
   }
 })

@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { initPromo, initPromoActive } from '~/utils/initData.js'
+import { initPromo } from '~/utils/initData.js'
 
 export const state = () => initPromo
 
@@ -26,7 +26,11 @@ export const mutations = {
     state.promoActive = payload
   },
   RESET_PROMO_ACTIVE (state) {
-    state.promoActive = initPromoActive
+    state.promoActive = {
+      name: null,
+      description: null,
+      image: null
+    }
   }
 }
 

@@ -32,15 +32,33 @@ export const mutations = {
   },
   // Reset search_school_address
   RESET_SEARCH_SCHOOL_ADDRESS (state) {
-    state.search_school_address = initFormSearchSchoolAddress
+    state.search_school_address = {
+      province: null,
+      regency: null,
+      district: null,
+      village: null,
+      stage: null,
+      status: null
+    }
   },
   // Reset getaccess
   RESET_GET_ACCESS (state) {
-    state.getaccess = initFormGetaccess
+    state.getaccess = {
+      school_name: null,
+      npsn: null,
+      name: null,
+      position: null,
+      email: null,
+      phone_number: null
+    }
   },
   // Reset contact
   RESET_CONTACT (state) {
-    state.contact = initFormContact
+    state.contact = {
+      name: null,
+      email: null,
+      message: null
+    }
   }
 }
 
