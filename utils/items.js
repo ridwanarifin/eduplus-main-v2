@@ -4,6 +4,60 @@ import {
   mdiContactsOutline
 } from '@mdi/js'
 
+export const headerDetilSekolahItems = [
+  'Kontak Sekolah',
+  'Informasi Sekolah',
+  'Biaya Sekolah',
+  'Pendaftaran',
+  'Fasilitas',
+  'Ekstakuliner'
+]
+
+export const detilInformasiSekolahItems = [{
+  text: 'Kepala Sekolah',
+  value: 'user'
+}, {
+  text: 'Jumlah Siswa',
+  value: 'total_student'
+}, {
+  text: 'Akreditasi',
+  value: 'accreditation'
+}, {
+  text: 'Status',
+  value: 'status'
+}, {
+  text: 'Jam Sekolah',
+  value: 'schools_hour'
+}]
+
+export const detilBiayaSekolahItems = [{
+  text: 'Uang Pangkal',
+  value: 'costs'
+}, {
+  text: 'SPP Bulanan',
+  value: 'costs'
+}, {
+  text: 'Uang Kegiatan',
+  value: 'costs'
+}, {
+  text: 'Uang Buku',
+  value: 'costs'
+}, {
+  text: 'Potongan / Diskon',
+  value: 'costs'
+}]
+
+export const detilPendaftaranItems = [{
+  text: 'Pendaftaran',
+  value: 'registration'
+}, {
+  text: 'Pengumuman',
+  value: 'registration'
+}, {
+  text: 'Daftar Ulang',
+  value: 'registration'
+}]
+
 export const drawerItems = [{
   name: 'Home',
   icon: mdiHomeOutline,

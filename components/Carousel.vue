@@ -1,7 +1,7 @@
 <template>
   <swiper
     ref="mySwiper"
-    class="swiper mx-auto"
+    class="swiper"
     :options="swiperOptions"
     :auto-update="true"
     :auto-destroy="true"
@@ -10,9 +10,13 @@
   >
     <slot v-bind="{ dataSource }">
       <swiper-slide v-if="!dataSource.length">
-        <v-skeleton-loader
-          type="image"
-          loading
+        <v-img
+          :src="require('~/assets/img/placeholder-school.png?webp')"
+          :lazy-src="require('~/assets/img/placeholder-school.png?webp')"
+          min-width="auto"
+          min-height="auto"
+          max-height="400"
+          class="mx-auto"
         />
       </swiper-slide>
 
@@ -28,20 +32,7 @@
           min-height="auto"
           max-width="1105"
           max-height="400"
-        >
-          <template #placeholder>
-            <v-row
-              class="fill-height ma-0"
-              align="center"
-              justify="center"
-            >
-              <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-              />
-            </v-row>
-          </template>
-        </v-img>
+        />
       </swiper-slide>
       <div
         slot="pagination"

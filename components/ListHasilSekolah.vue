@@ -13,7 +13,7 @@
           color="primary"
           class="btn-secondary px-6 mx-auto"
         >
-          {{ dataSource.total }} {{ context.stage }} Ditemukan
+          {{ dataSource.total }} {{ context.stage || 'Sekolah' }} Ditemukan
         </v-btn>
       </div>
     </template>
@@ -34,8 +34,11 @@
           md="3"
         >
           <v-card
-            class="shadow-primary"
+            nuxt
+            exact
             :loading="loading"
+            :to="`/schools/detail/${item.uuid}`"
+            class="shadow-primary"
           >
             <v-img
               :src="$_.isEmpty(item.images) ? getImage(item.name, 'school') : $_.first(item.images)"
@@ -48,12 +51,12 @@
               {{ item.name | truncate(sizeName) }}
             </v-card-title>
 
-            <v-card-subtitle
+            <v-card-text
               class="text-truncate"
               :title="item.address"
             >
               {{ item.address | truncate(sizeAddress) }}
-            </v-card-subtitle>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>

@@ -1,9 +1,5 @@
-import * as _ from 'lodash'
-import SecureLS from 'secure-ls'
-import createPersistedState from 'vuex-persistedstate'
-const ls = new SecureLS({ isCompression: false })
 
-// export const strict = false
+import * as _ from 'lodash'
 
 export const state = () => ({
   pending: false,
@@ -153,8 +149,6 @@ export const actions = {
     // code
     commit('SET_PENDING', true)
 
-    window.localStorage.clear()
-
     await Promise.all([
       dispatch('getSearchInit'),
       dispatch('promo/getPromo'),
@@ -176,16 +170,6 @@ export const actions = {
       .catch((err) => {
         console.warn(err)
       })
-  },
-  /**
-   * @param {*} uuid
-   * String
-   * @returns
-   * Detil Sekolah
-   */
-  async getDetailSekolah ({ commit }, uuid) {
-    // code
-    return await this.$axios.$get(`/api/schools/${uuid}`)
   },
   /**
    * @param {*} args
@@ -329,13 +313,3 @@ export const actions = {
       })
   }
 }
-
-export const plugins = [
-  createPersistedState({
-    storage: {
-      getItem: key => ls.get(key),
-      setItem: (key, value) => ls.set(key, value),
-      removeItem: key => ls.remove(key)
-    }
-  })
-]

@@ -237,7 +237,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { mapFields } from 'vuex-map-fields'
 import { stageItems, statusItems } from '~/utils/items.js'
 
@@ -266,9 +266,6 @@ export default {
     statusItems () { return statusItems }
   },
   methods: {
-    ...mapMutations({
-      resetContext: 'RESET_CONTEXT_SEARCH_ADDRESS'
-    }),
     ...mapActions([
       'getRegencyByProvince',
       'getDistrictByRegency',

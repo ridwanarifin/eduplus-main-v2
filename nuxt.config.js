@@ -44,7 +44,8 @@ export default {
     '~/plugins/vue-awesome-swiper.js',
     '~/plugins/filters.js',
     '~/plugins/mixins.js',
-    '~/plugins/injects.js'
+    '~/plugins/injects.js',
+    '~/plugins/persistedState.client.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

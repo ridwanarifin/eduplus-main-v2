@@ -1,12 +1,16 @@
 <template>
   <div>
-    <lazy-breadcrumbs />
-    <lazy-detil-sekolah :data="school" />
+    <v-sheet class="pb-6 mb-16">
+      <lazy-breadcrumbs />
+      <lazy-detil-sekolah />
+    </v-sheet>
+
+    <lazy-list-sekolah-lainnya />
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   middleware ({ route, store }) {
     store.commit('SET_CRUMBS', [{
@@ -19,25 +23,21 @@ export default {
       name: 'Detail Sekolah'
     }])
   },
-  data: () => ({
-    pending: false,
-    school: {}
-  }),
   async fetch () {
-    this.pending = true
-    await this.getDetailSekolah(this.$route.params.slug)
-      .then((res) => {
-        this.school = res
-      })
-      .catch((err) => {
-        console.warn(err)
-      })
-      .finally(() => {
-        this.pending = false
-      })
+    await this.getDetailSchool(this.$route.params.slug)
+  },
+  destroyed () {
+    this.resetAccessDetail()
+    this.resetSekolahDetail()
   },
   methods: {
-    ...mapActions(['getDetailSekolah'])
+    ...mapActions({
+      getDetailSchool: 'sekolah/getDetailSchool'
+    }),
+    ...mapMutations({
+      resetAccessDetail: 'sekolah/RESET_ACCESS_DETAIL',
+      resetSekolahDetail: 'sekolah/RESET_SEKOLAH_DETAIL'
+    })
   }
 }
 </script>

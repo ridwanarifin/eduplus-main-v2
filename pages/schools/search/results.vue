@@ -34,6 +34,7 @@
 </template>
 
 <script>
+// eslint-disable-next-line
 import { mapGetters, mapMutations } from 'vuex'
 import OrderingFilterSekolah from '~/components/OrderingFilterSekolah.vue'
 
@@ -58,16 +59,6 @@ export default {
     ...mapGetters({
       sekolah: 'sekolah/sekolah',
       context: 'context_search_address'
-    })
-  },
-  beforeDestroy () {
-    this.resetDataSekolah()
-    this.resetDataContext()
-  },
-  methods: {
-    ...mapMutations({
-      resetDataSekolah: 'sekolah/RESET_DATA',
-      resetDataContext: 'RESET_CONTEXT_SEARCH_ADDRESS'
     })
   }
 }

@@ -37,9 +37,12 @@
         />
 
         <v-btn
+          nuxt
+          exact
           rounded
           class="primary"
           :style="$vuetify.breakpoint.smAndUp ? 'width: 343px' : ''"
+          to="/schools/get-access"
         >
           Dapatkan akses
         </v-btn>
@@ -67,7 +70,13 @@
               class="text-truncate"
               :title="item.name"
             >
-              {{ item.name | truncate(sizeName) }}
+              <nuxt-link
+                exact
+                :to="`/schools/detail/${item.uuid}`"
+                class="text--primary"
+              >
+                {{ item.name | truncate(sizeName) }}
+              </nuxt-link>
             </v-card-title>
 
             <v-card-subtitle

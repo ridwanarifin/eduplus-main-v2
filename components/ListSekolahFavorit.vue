@@ -40,8 +40,8 @@
                   class="shadow-primary text-left"
                 >
                   <v-img
-                    :src="getImage(item.name, 'blue')"
-                    :lazy-src="getImage(item.name, 'blue')"
+                    :src="$_.head(item.images) || require('~/assets/img/placeholder-school.png?webp')"
+                    :lazy-src="$_.head(item.images) || require('~/assets/img/placeholder-school.png?webp')"
                   />
                   <v-card-title>
                     {{ item.name | truncate(sizeName) }}

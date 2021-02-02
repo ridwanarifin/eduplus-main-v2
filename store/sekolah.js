@@ -13,16 +13,25 @@ export const state = () => ({
   per_page: 15,
   total: 0,
   // detail school from get access
-  access_detail: {}
+  access_detail: {},
+  sekolah_detail: {}
 })
 
 export const getters = {
-  sekolah: state => state
+  sekolah: state => state,
+  sekolah_detail: state => state.sekolah_detail
 }
 
 export const mutations = {
   SET_PENDING (state, payload) {
     state.pending = payload
+  },
+  SET_ORDERING (state, payload) {
+    if (_.isEqual(payload, 'desc')) {
+      state.data = _.orderBy(state.data, ['name'], ['desc'])
+    } else {
+      state.data = _.orderBy(state.data, ['name'], ['asc'])
+    }
   },
   /**
    * Set init data
@@ -41,7 +50,7 @@ export const mutations = {
   /**
    * Reset data not including access detail
    */
-  RESET_DATA (state) {
+  RESET_DATA_INIT (state) {
     state.untouched = true
     state.pending = false
     state.old_value = null
@@ -64,12 +73,17 @@ export const mutations = {
   RESET_ACCESS_DETAIL (state) {
     state.access_detail = {}
   },
-  SET_ORDERING (state, payload) {
-    if (_.isEqual(payload, 'desc')) {
-      state.data = _.orderBy(state.data, ['name'], ['desc'])
-    } else {
-      state.data = _.orderBy(state.data, ['name'], ['asc'])
-    }
+  /**
+   * @param {*} payload
+   * Object
+   * sekolah detail
+   */
+  SET_SEKOLAH_DETAIL (state, payload) {
+    state.sekolah_detail = payload
+  },
+  // sekolah detail
+  RESET_SEKOLAH_DETAIL (state) {
+    state.sekolah_detail = {}
   }
 }
 
@@ -214,12 +228,12 @@ export const actions = {
    * @param {*} uuid
    * String uuid schools
    */
-  async getDetailSchool ({ commit }, uuid) {
+  async getDetailSchool ({ commit, dispatch, state }, uuid) {
     // code
     commit('SET_PENDING', true)
     await this.$axios.$get(`/api/schools/${uuid}`)
       .then((ress) => {
-        console.log(ress)
+        // akses detail
         commit('SET_ACCESS_DETAIL', ress)
         commit('form/updateField', {
           path: 'getaccess.school_name',
@@ -233,12 +247,35 @@ export const actions = {
           path: 'getaccess.phone_number',
           value: ress.phone_number
         }, { root: true })
+
+        // detail sekolah
+        commit('SET_SEKOLAH_DETAIL', ress)
+
+        // if all/list sekolah is empty
+        if (_.isEmpty(state.data)) {
+          const a = _.split(ress.name, ' ')
+          if (_.size(a) > 0) {
+            commit('form/updateField', {
+              path: 'search_school',
+              value: a[1]
+            }, { root: true })
+          } else {
+            commit('form/updateField', {
+              path: 'search_school',
+              value: a[0]
+            }, { root: true })
+          }
+        }
       })
       .catch((err) => {
         console.warn(err)
       })
-      .finally(() => {
+      .finally(async () => {
         commit('SET_PENDING', false)
+
+        if (_.isEmpty(state.data)) {
+          await dispatch('postSubmitSearchSchool')
+        }
       })
   },
   /**

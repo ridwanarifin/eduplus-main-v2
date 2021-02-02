@@ -20,8 +20,11 @@ Vue.filter('upper', (text) => {
 })
 
 Vue.filter('statusSekolah', (number) => {
-  if (!number) { return 'Swasta' }
-  return 'Negeri'
+  switch (number) {
+    case 0: return 'Swasta'
+    case 1: return 'Negeri'
+    default: return null
+  }
 })
 
 Vue.filter('stageSekolah', (text) => {
@@ -30,7 +33,7 @@ Vue.filter('stageSekolah', (text) => {
     case 'SMP': return 'SMP & MTs'
     case 'SMA': return 'SMA/SMK & MA'
     case 'KURSUS': return 'Kursus'
-    default: return null
+    default: return 'Sekolah'
   }
 })
 
