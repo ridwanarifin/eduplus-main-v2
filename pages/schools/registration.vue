@@ -25,6 +25,7 @@
 
       <v-btn
         nuxt
+        exact
         large
         rounded
         color="white"
@@ -59,12 +60,12 @@ export default {
       this.typing = false
     }, 800)
   },
-  destroyed () {
+  created () {
     this.reset()
   },
   methods: {
     ...mapMutations('sekolah', {
-      reset: 'RESET_DATA'
+      reset: 'RESET_DATA_INIT'
     })
   }
 }

@@ -172,15 +172,5 @@ export default {
         }
       }
     ]
-  },
-
-  vendor: [
-    '@mdi/js',
-    'lodash',
-    'secure-ls',
-    'vee-validate',
-    'vue-awesome-swiper',
-    'vuex-persistedstate',
-    'vue-sweetalert2'
-  ]
+  }
 }

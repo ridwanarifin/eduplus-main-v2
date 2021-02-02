@@ -47,6 +47,7 @@
         rounded
         nuxt
         exact
+        replace
         to="/schools/registration"
         color="white"
         class="btn-primary-registration font-weight-black ml-md-5"

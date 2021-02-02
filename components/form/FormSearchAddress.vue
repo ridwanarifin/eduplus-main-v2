@@ -224,6 +224,7 @@
           >
             Daftarkan Sekolah atau tempat kursus anda
             <nuxt-link
+              exact
               class="text-lowercase"
               to="/schools/registration"
             >

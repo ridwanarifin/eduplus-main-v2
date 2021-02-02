@@ -38,17 +38,6 @@
         </v-list-item-group>
       </v-list>
     </v-menu>
-
-    <v-btn text>
-      <v-icon
-        color="primary"
-        class="mr-1"
-        v-text="$icon.mdiFilterOutline"
-      />
-      <span>
-        Filter
-      </span>
-    </v-btn>
   </div>
 </template>
 
