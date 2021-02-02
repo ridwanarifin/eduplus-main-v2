@@ -114,7 +114,7 @@ export default {
     ...mapMutations({
       resetDataSekolah: 'sekolah/RESET_DATA_INIT'
     }),
-    sekolahLainnya (args) {
+    sekolahLainnya () {
       this.resetDataSekolah()
       this.$router.replace('/schools/search')
     }

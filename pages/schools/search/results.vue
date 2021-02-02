@@ -25,7 +25,7 @@
         rounded
         color="primary"
         class="px-sm-5 btn-secondary"
-        @click.stop="$router.back()"
+        @click.prevent="sekolahLainnya"
       >
         Cari sekolah lainnya
       </v-btn>
@@ -34,7 +34,6 @@
 </template>
 
 <script>
-// eslint-disable-next-line
 import { mapGetters, mapMutations } from 'vuex'
 import OrderingFilterSekolah from '~/components/OrderingFilterSekolah.vue'
 
@@ -60,6 +59,15 @@ export default {
       sekolah: 'sekolah/sekolah',
       context: 'context_search_address'
     })
+  },
+  methods: {
+    ...mapMutations({
+      resetDataSekolah: 'sekolah/RESET_DATA_INIT'
+    }),
+    sekolahLainnya () {
+      this.resetDataSekolah()
+      this.$router.replace('/schools/search')
+    }
   }
 }
 </script>
