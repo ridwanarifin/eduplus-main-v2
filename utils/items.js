@@ -110,10 +110,10 @@ export const stageItems = [{
 
 export const statusItems = [{
   text: 'Negeri',
-  value: '0'
+  value: '1'
 }, {
   text: 'Swasta',
-  value: '1'
+  value: '0'
 }]
 
 export const samplePromoItems = [{

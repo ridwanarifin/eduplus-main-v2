@@ -48,8 +48,7 @@ export default {
   components: { FormSearchName },
   data () {
     return {
-      typing: false,
-      message: ''
+      typing: false
     }
   },
   computed: {
