@@ -7,6 +7,15 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
+  created () {
+    this.resetDataSekolah()
+  },
+  methods: {
+    ...mapMutations({
+      resetDataSekolah: 'sekolah/RESET_DATA_INIT'
+    })
+  }
 }
 </script>

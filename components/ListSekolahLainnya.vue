@@ -1,6 +1,6 @@
 <template>
   <v-data-iterator
-    :items="sekolah.data"
+    :items="data"
     :items-per-page="perPage"
     hide-default-footer
     class="container mx-auto"
@@ -83,6 +83,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
@@ -93,6 +94,10 @@ export default {
     ...mapGetters('sekolah', [
       'sekolah'
     ]),
+    data () {
+      if (_.isEmpty(this.sekolah.data)) { return [] }
+      return _.filter(this.sekolah.data, obj => obj.name !== this.sekolah.sekolah_detail.name)
+    },
     sizeName () {
       if (this.$vuetify.breakpoint.xs) {
         return 27
