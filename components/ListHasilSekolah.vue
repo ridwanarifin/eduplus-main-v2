@@ -43,7 +43,20 @@
             <v-img
               :src="$_.isEmpty(item.images) ? getImage(item.name, 'school') : $_.first(item.images)"
               :lazy-src="$_.isEmpty(item.images) ? getImage(item.name, 'school') : $_.first(item.images)"
-            />
+            >
+              <template #placeholder>
+                <v-row
+                  class="fill-height ma-0"
+                  align="center"
+                  justify="center"
+                >
+                  <v-progress-circular
+                    indeterminate
+                    color="grey lighten-5"
+                  />
+                </v-row>
+              </template>
+            </v-img>
             <v-card-title
               class="text-truncate"
               :title="item.name"

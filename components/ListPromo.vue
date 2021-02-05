@@ -27,7 +27,20 @@
               <v-img
                 :src="item.image"
                 :lazy-src="item.image"
-              />
+              >
+                <template #placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular
+                      indeterminate
+                      color="grey lighten-5"
+                    />
+                  </v-row>
+                </template>
+              </v-img>
 
               <v-card-title>
                 {{ item.name }}

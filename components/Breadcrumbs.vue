@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-6 px-md-0">
+  <v-container class="px-0">
     <v-breadcrumbs
       v-show="getBreadcrumb.length"
       :items="getBreadcrumb"

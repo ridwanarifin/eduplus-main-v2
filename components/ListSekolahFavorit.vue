@@ -42,7 +42,20 @@
                   <v-img
                     :src="$_.head(item.images) || require('~/assets/img/placeholder-school.png?webp')"
                     :lazy-src="$_.head(item.images) || require('~/assets/img/placeholder-school.png?webp')"
-                  />
+                  >
+                    <template #placeholder>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="grey lighten-5"
+                        />
+                      </v-row>
+                    </template>
+                  </v-img>
                   <v-card-title>
                     {{ item.name | truncate(sizeName) }}
                   </v-card-title>

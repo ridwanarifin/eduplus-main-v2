@@ -67,7 +67,7 @@ export const drawerItems = [{
   icon: mdiSearchWeb,
   path: '/schools/search'
 }, {
-  name: 'Hubungin Kami',
+  name: 'Hubungi Kami',
   icon: mdiContactsOutline,
   path: '/contact-us'
 }]

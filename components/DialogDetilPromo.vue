@@ -22,7 +22,20 @@
         :src="promoActive.image || 'https://via.placeholder.com/255x242'"
         :lazy-src="promoActive.image || 'https://via.placeholder.com/255x242'"
         class="mx-5 mb-7"
-      />
+      >
+        <template #placeholder>
+          <v-row
+            class="fill-height ma-0"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            />
+          </v-row>
+        </template>
+      </v-img>
 
       <v-divider class="mb-2" />
 

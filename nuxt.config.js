@@ -72,6 +72,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
     'vue-sweetalert2/nuxt'
   ],
 
@@ -102,21 +104,42 @@ export default {
     ]
   },
 
+  vendor: [
+    '@mdi/js',
+    '@nuxtjs/axios',
+    '@nuxtjs/moment',
+    '@nuxtjs/pwa',
+    '@nuxtjs/toast',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
+    'core-js',
+    'lodash',
+    'node-sass',
+    'sass-loader',
+    'nuxt-client-init-module',
+    'secure-ls',
+    'swiper',
+    'vee-validate',
+    'vue-awesome-swiper',
+    'vue-sweetalert2',
+    'vuex-map-fields',
+    'vuex-persistedstate',
+    '@nuxtjs/style-resources',
+    '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/vuetify',
+    'imagemin-mozjpeg',
+    'imagemin-pngquant',
+    'imagemin-svgo',
+    'webp-loader'
+  ],
+
   optimizedImages: {
-    optimizeImages: true,
-    extractCSS: true,
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|vue)$/,
-            chunks: 'all',
-            enforce: true
-          }
-        }
-      }
-    }
+    optimizeImages: true
+  },
+
+  sitemap: {
+    hostname: 'https://edukasiplus.com',
+    gzip: true
   },
 
   // vue toasted, configuration (https://github.com/nuxt-community/community-modules/tree/master/packages/toast)

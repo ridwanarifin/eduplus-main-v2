@@ -25,6 +25,8 @@
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/robots": "^2.4.2",
+    "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/toast": "^3.3.1",
     "core-js": "^3.8.2",
     "lodash": "^4.17.20",

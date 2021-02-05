@@ -17,7 +17,20 @@
           min-height="auto"
           max-height="400"
           class="mx-auto"
-        />
+        >
+          <template #placeholder>
+            <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center"
+            >
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              />
+            </v-row>
+          </template>
+        </v-img>
       </swiper-slide>
 
       <swiper-slide
@@ -32,7 +45,20 @@
           min-height="auto"
           max-width="1105"
           max-height="400"
-        />
+        >
+          <template #placeholder>
+            <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center"
+            >
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              />
+            </v-row>
+          </template>
+        </v-img>
       </swiper-slide>
       <div
         slot="pagination"

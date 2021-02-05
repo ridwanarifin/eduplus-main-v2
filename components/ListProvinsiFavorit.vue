@@ -43,7 +43,20 @@
                   <v-img
                     :src="getImage(d.name, 'green')"
                     :lazy-src="getImage(d.name, 'green')"
-                  />
+                  >
+                    <template #placeholder>
+                      <v-row
+                        class="fill-height ma-0"
+                        align="center"
+                        justify="center"
+                      >
+                        <v-progress-circular
+                          indeterminate
+                          color="grey lighten-5"
+                        />
+                      </v-row>
+                    </template>
+                  </v-img>
                   <v-card-title v-text="d.name" />
                   <v-card-subtitle v-text="`${d.count} ${props.title}`" />
                 </v-card>
